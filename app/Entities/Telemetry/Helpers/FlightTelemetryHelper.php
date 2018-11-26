@@ -37,6 +37,7 @@ class FlightTelemetryHelper
     public function newFlight($uuid, $aircraft_name, $aircraft_sn)
     {
         $this->flight = $this->modelFactory->flight();
+
         $this->flight->uuid = $uuid;
         $this->flight->aircraft_name = $aircraft_name;
         $this->flight->aircraft_sn = $aircraft_sn;

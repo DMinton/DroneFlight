@@ -14,16 +14,15 @@ class FlightTelemetry extends AbstractTelemetry
 
     /**
      * FlightTelemetry constructor.
-     * @param ModelFactory $modelFactory
      * @param FlightTelemetryHelper $flightTelemetryHelper
      */
-    public function __construct(ModelFactory $modelFactory, FlightTelemetryHelper $flightTelemetryHelper)
+    public function __construct(FlightTelemetryHelper $flightTelemetryHelper)
     {
         $this->helper = $flightTelemetryHelper;
     }
 
     /**
-     * While I am actually saving to the DB here, this should just save the file to aws and process later.
+     * While I am actually saving to the DB here, this should just save the file to aws and queue the job.
      *
      * @return bool
      */
@@ -34,6 +33,9 @@ class FlightTelemetry extends AbstractTelemetry
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function processFile()
     {
         $flightJson = json_decode($this->file->get());
@@ -55,22 +57,6 @@ class FlightTelemetry extends AbstractTelemetry
         }
 
         return true;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function list()
-    {
-        // TODO: Implement list() method.
-    }
-
-    /**
-     * @return mixed
-     */
-    public function details()
-    {
-        // TODO: Implement details() method.
     }
 
     /**

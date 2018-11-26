@@ -28,14 +28,4 @@ abstract class AbstractTelemetry
      * @return bool
      */
     abstract public function save();
-
-    /**
-     * @return mixed
-     */
-    abstract public function list();
-
-    /**
-     * @return mixed
-     */
-    abstract public function details();
 }

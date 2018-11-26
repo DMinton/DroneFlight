@@ -50,7 +50,7 @@ class GeoFormHelper
      */
     public function toPoint()
     {
-        return $this->form('Point', array($this->gps->first()->lat, $this->gps->first()->lat));
+        return $this->form('Point', array($this->gps->first()->lat, $this->gps->first()->long));
     }
 
     /**
